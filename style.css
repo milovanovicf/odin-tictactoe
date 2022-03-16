@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  padding-top: 100px;
+  font-family: "Roboto", sans-serif;
+}
+
+.text-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 130px);
+  grid-template-rows: repeat(3, 130px);
+  margin: 0 auto;
+}
+
+.button {
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.player {
+  font-size: 20px;
+  height: 30px;
+}
+
+.reset {
+  border: 1px solid brown;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin: 10px 0 20px 0;
+  display: none;
+  margin-left: 20px;
+}
+
+.appear {
+  display: block;
+}
+
+.reset:hover {
+  background-color: brown;
+  color: #eee;
+}

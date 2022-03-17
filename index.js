@@ -1,9 +1,9 @@
-let newGame = (board, player, text) => {
-  board = ["", "", "", "", "", "", "", "", ""];
-  player = "X";
-  resetBtn.classList.remove("appear");
-  createButtons().tileBtn.innerText = null;
-  return resetBtn;
+let reset = () => {
+  const resetBtn = document.querySelector(".reset");
+  resetBtn.classList.add("appear");
+  resetBtn.addEventListener("click", function () {
+    window.location.reload();
+  });
 };
 
 let gameController = (board) => {
@@ -30,16 +30,7 @@ let gameController = (board) => {
         winner = true;
 
         if (winner) {
-          const resetBtn = document.querySelector(".reset");
-          resetBtn.classList.add("appear");
-          resetBtn.addEventListener("click", function () {
-            board = ["", "", "", "", "", "", "", "", ""];
-            player = "X";
-            // resetBtn.classList.remove("appear");
-            createButtons().tileBtn.innerText = null;
-            console.log(board);
-            console.log(createButtons().tileBtn.innerText);
-          });
+          reset();
         }
       }
     });
@@ -48,11 +39,12 @@ let gameController = (board) => {
   function checkDraw() {
     if (winner === false && board.every((tile) => tile != "")) {
       playerText.innerText = `It's a draw!`;
+      reset();
       return true;
     }
   }
 
-  return { checkwinner, checkDraw, player };
+  return { checkwinner, checkDraw, player, winner };
 };
 
 let createButtons = () => {
